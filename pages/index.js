@@ -1,65 +1,71 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import {useEffect, useState} from 'react';
+import Layout from '../components/layout/layout'
+import Table from '../components/table/table'
+import Programs from '../components/programs/programs'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import { useRequireAuth } from "../lib/useAuth";
+import { useData } from "../lib/useData";
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+import Loading from '../components/loading';
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+export default function App() {
+  return NULL;
+  // console.log("1. App Main Page Component");
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+  // const auth = useRequireAuth();
+  // const {data: seasonsData, error: seasonError} = useData('Seasons', true);
+  // const {data: programData, error: programError} = useData('Programs', auth.currentSeason, seasonsData);
+  // const {data: instructorRows, error: instructorError} = useData('Instructors', auth.currentSeason, seasonsData);
+  // const {data: schoolRows, error: schoolError} = useData('Schools', auth.currentSeason, seasonsData);
+  // const [sortPageToggle, setSortPageToggle] = useState(false);
+  // useEffect(()=>{
+  //   if(seasonsData){
+  //     auth.setSeasonList(seasonsData);
+  //     if(seasonsData.length){
+  //       auth.currentSeason?null:auth.setCurrentSeason(seasonsData[0]?seasonsData[0]:'');
+  //     }
+  //   }
+      
+  // },[seasonsData]);
+  
+  // if(!auth || !auth.user || (!seasonsData && !seasonError)){
+  //   return (<Loading />);
+  // }else if(seasonError){
+  //   console.log("Error::useData('Seasons',null)::Error", seasonError);
+  //   return (<h1>ERROR. Check console logs</h1>);
+  // }
+    
+  // return (
+  //   <Layout  pageName={auth.pageName} setSortPageToggle={setSortPageToggle}>
+  //     {auth.pageName === 'Programs'     ?   
+  //       <Programs 
+  //         programData={programData} 
+  //         instructorRows={instructorRows} 
+  //         schoolRows={schoolRows}
+  //         error={programError && instructorError && schoolError}
+  //         sortPageToggle={sortPageToggle}
+  //         setSortPageToggle={setSortPageToggle}
+  //       />
+  //     :null}
+  //     {auth.pageName === 'Instructors'  ?   
+  //       <Table 
+  //         table_type={auth.pageName} 
+  //         rows={instructorRows}
+  //         error={instructorError}
+  //         programData={programData}
+  //         programError={programError}
+  //       />
+  //     :null}
+  //     {auth.pageName === 'Schools'      ?   
+  //       <Table 
+  //         table_type={auth.pageName} 
+  //         rows={schoolRows}
+  //         error={schoolError}
+  //         programData={programData}
+  //         programError={programError}
+  //       />
+  //     :null}
+  //   </Layout>
+  // );
 }
