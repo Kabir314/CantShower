@@ -12,6 +12,6 @@ export default function App() {
   console.log("1. App Main Page Component");
 
   const auth = useRequireAuth();
-  auth.signout()
+  // auth.signout()
   return (<></>);
 };
