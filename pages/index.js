@@ -26,12 +26,18 @@ import Loading from '../components/loading';
 export default function App() {
   
   console.log("1. App Main Page Component");
+  const api_id = 'cdbaedf0';
+  const api_key = '57365c5e0ffd69f47741f5efe705fcc8';
   const [open, setOpen] = useState(false); 
   const auth = useRequireAuth();
   const [value, setValue] = useState('');
   const [foodItems, setFoodItems] = useState([{'label':'Chicken'},{ 'label': 'Bread'}])
   const handleDelete = ( label ) =>{
-    return
+    fetch('https://ykr6kmq7zf.execute-api.us-west-2.amazonaws.com/default/write-to-sleeptable',
+    {method:'POST',
+    headers: {'Content-Type': 'application/json'},
+    body:JSON.stringify({'date':'2019-10-20','sleep_quality':100})
+  }).then((res)=>console.log("request sent",res));
   } 
   return (
     <>
@@ -125,6 +131,7 @@ export default function App() {
             </IconButton>
             </div>
             </div>
+            
           </form>
         </DialogContent>
         <DialogActions>
