@@ -221,7 +221,7 @@ export default function App() {
             <CardContent>
               <h2>Sleep Recommendatation</h2>
               {rec.SleepPrediction?
-              'Based on your previous activities we recommend you sleep today at '+ rec.SleepPrediction.sleep_quantity+' PM.'
+              'Based on your previous activities we recommend you sleep today for '+ rec.SleepPrediction.sleep_quantity+' hours.'
               :null}
             </CardContent>
             <CardActions>
